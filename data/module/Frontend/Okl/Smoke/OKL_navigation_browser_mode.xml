@@ -9,15 +9,17 @@ Below are just 2 simple examples one is with hardcoded expected value and other 
 <assert name="Verify your expected result" descriptor="VARCHAR" output="junit:v_read_from_browser_variable" value="Hardcoded Text Value" operator="Has" /> 
 <assert name="Verify expected=@input_from_xls value" descriptor="VARCHAR" output="junit:v_read_from_browser_variable" value="@input_from_xls" operator="Has" />
 Please reffer to your training manual or FAQ documents for details.  -->
-<page name="22F6ED49F096047EE0505D0A1FAB4A8B" description="Smoke Test for search">
+<page name="24C349B27F20336EE0505D0A1FAB1394" description="OKL Navigation Using Menu">
 
 
-<action  name="2309A518FC1CC54DE0505D0A1FAB7AED"  dataset="global:xls.qvc_search_data" description="Search items from all departments">
+<action  name="24C349B27F21336EE0505D0A1FAB1394"  dataset="global:xls.okl_search_data"   description="Navigate to all items in each department using menu">
 	   
 
-		<validator name="Step-1: search item @searchtext"  description=" This test is to search items on qvc site">
-			
-			<junit name="Test Browser Action= 2309A518FC1CC54DE0505D0A1FAB7AED or Give any meaningful name for this container">
+		<validator name="Step-1: Navigate through browser menu to @mainmenu --> @submenu -->@item_name"  description=" Write few word why you need this step">
+			<variables>
+				<var id="browserwidth" value="1200" />
+			</variables>
+			<junit name="Test Browser Action= 24C349B27F21336EE0505D0A1FAB1394 or Give any meaningful name for this container">
 				<testPackage name="com.testmax.runner">
 					<testClass class="SeleniumTestRunner">
 						
@@ -27,10 +29,10 @@ Please reffer to your training manual or FAQ documents for details.  -->
 						     In this example, we are just calling the injector as taglib. 
 						     But in real world taglib in CloudTest platform is containers of abstract injectors with or without any real HTML tag definition
 						     To learn more about how to use injector please look at FAQ -->
-						     
-							@taglib:qvc_fashion.qvc_start
-							@taglib:qvc_fashion.qvc_search
-							@taglib:qvc_fashion.qvc_price
+							
+							@taglib:onekingslane.oneKingsLaneStart
+							@taglib:onekingslane.oneKingsLaneNavigateItemBrowser
+							@taglib:onekingslane.oneKingsItemPrice
 							
 						</taglib>
 						
@@ -48,8 +50,8 @@ Please reffer to your training manual or FAQ documents for details.  -->
 			
 		<!-- Below is a sample assert. You can add more assert object with different operators like Eq, Nq, Has,Lt,LtEq etc --> 
 		
-            <assert name="Verify price for item= @mainmenu : @searchtext " descriptor="NUMBER" output="junit:v_verify_item_value" value="@expected" operator="Gt" /> 
-            
+             <assert name="Verify price for item= @mainmenu : @searchtext " descriptor="VARCHAR" output="junit:v_verify_item_price" value=".00" operator="Has" /> 
+          
 		</validator>
 
 
