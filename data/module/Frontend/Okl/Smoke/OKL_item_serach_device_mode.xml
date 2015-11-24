@@ -15,7 +15,7 @@ Please reffer to your training manual or FAQ documents for details.  -->
 <action  name="252F8964D3343493E0505D0A1FAB0FE7"  dataset="global:xls.okl_search_data" description="Search item using Device mode">
 	   
 
-		<validator name="Step-1: Give A Name For This Step"  description=" Write few word why you need this step">
+		<validator name="Step-1: Search item for @item_name with @searchtext"  description=" Write few word why you need this step">
 			<variables>
 				<var id="browserwidth" value="800" />
 			</variables>
